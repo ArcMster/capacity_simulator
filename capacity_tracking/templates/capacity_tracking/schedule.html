@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vessel Schedule</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #F58220;
+            margin-right: 20px;
+        }
+        .title {
+            font-size: 18px;
+            font-weight: bold;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: white;
+            font-size: 12px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+        thead th {
+            background-color: #F58220;
+            color: white;
+            font-weight: bold;
+        }
+        .sub-header th {
+            background-color: #f9cb9c; /* Lighter orange */
+            color: #333;
+        }
+        .vessel-col, .voyage-col {
+            background-color: #fff3e0;
+            font-weight: bold;
+        }
+        .status-omitted {
+            background-color: #fff176; /* Yellow */
+            color: red;
+            font-weight: bold;
+        }
+        .status-actualized {
+            background-color: #e1f5fe; /* Light Blue */
+        }
+        .legend {
+            margin-top: 20px;
+            border: 1px solid #ddd;
+            width: 300px;
+            background: white;
+        }
+        .legend div {
+            padding: 5px;
+            border-bottom: 1px solid #eee;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <div class="logo">X-PRESS FEEDERS</div>
+        <div class="title">ARABIAN SEA X-PRESS (ASX) - Long Term Schedule</div>
+    </div>
+
+    <div id="loading">Loading schedule...</div>
+
+    <table id="schedule-table" style="display:none;">
+        <thead>
+            <tr id="header-row-1">
+                <th rowspan="2">Vessel</th>
+                <th rowspan="2">Voyage</th>
+                <!-- Port headers will be injected here -->
+            </tr>
+            <tr id="header-row-2">
+                <!-- Port sub-headers will be injected here -->
+            </tr>
+        </thead>
+        <tbody id="schedule-body">
+            <!-- Rows will be injected here -->
+        </tbody>
+    </table>
+
+    <div class="legend">
+        <div style="background-color: #F58220; color: white; font-weight: bold;">Legend</div>
+        <div class="status-omitted">Omitted port</div>
+        <div class="status-actualized">Actualized port</div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            fetch('/api/schedule/')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('loading').style.display = 'none';
+                    const table = document.getElementById('schedule-table');
+                    const headerRow1 = document.getElementById('header-row-1');
+                    const headerRow2 = document.getElementById('header-row-2');
+                    const tbody = document.getElementById('schedule-body');
+                    
+                    if (data.length === 0) {
+                        tbody.innerHTML = '<tr><td colspan="10">No data available</td></tr>';
+                        table.style.display = 'table';
+                        return;
+                    }
+
+                    // Determine columns from the first record (assuming fixed rotation for MVP)
+                    // In a real app, we'd merge all unique ports or have a defined service rotation.
+                    const firstRecord = data[0];
+                    const ports = firstRecord.port_calls;
+
+                    ports.forEach(port => {
+                        const th1 = document.createElement('th');
+                        th1.textContent = port.port_name;
+                        headerRow1.appendChild(th1);
+
+                        const th2 = document.createElement('th');
+                        th2.textContent = port.port_code; // Or other detail
+                        headerRow2.appendChild(th2);
+                    });
+
+                    // Add Operator Slots columns if needed, or just display in a tooltip/modal.
+                    // The image doesn't show operator slots explicitly in the main grid, 
+                    // but the user asked for "return the data as in this image along with the operators and the number of slots defined against them."
+                    // I will add a column for "Operator Slots" at the end.
+                    const thOp = document.createElement('th');
+                    thOp.textContent = "Operator Slots";
+                    thOp.rowSpan = 2;
+                    headerRow1.appendChild(thOp);
+
+
+                    data.forEach(item => {
+                        const tr = document.createElement('tr');
+                        
+                        // Vessel
+                        const tdVessel = document.createElement('td');
+                        tdVessel.textContent = item.vessel_name;
+                        tdVessel.className = 'vessel-col';
+                        tr.appendChild(tdVessel);
+
+                        // Voyage
+                        const tdVoyage = document.createElement('td');
+                        tdVoyage.textContent = item.voyage;
+                        tdVoyage.className = 'voyage-col';
+                        tr.appendChild(tdVoyage);
+
+                        // Ports
+                        item.port_calls.forEach(pc => {
+                            const td = document.createElement('td');
+                            
+                            // Format dates
+                            const eta = pc.eta ? new Date(pc.eta).toLocaleDateString() : '';
+                            const etd = pc.etd ? new Date(pc.etd).toLocaleDateString() : '';
+                            
+                            let content = `<div>${eta}</div><div>${etd}</div>`;
+                            
+                            if (pc.port_status === 'OMITTED') {
+                                td.className = 'status-omitted';
+                                content = 'OMIT';
+                            } else if (pc.status === 'ARRIVED' || pc.status === 'SAILED') {
+                                td.className = 'status-actualized';
+                            }
+
+                            td.innerHTML = content;
+                            tr.appendChild(td);
+                        });
+
+                        // Operator Slots
+                        const tdOp = document.createElement('td');
+                        let opHtml = '';
+                        for (const [op, count] of Object.entries(item.operator_slots)) {
+                            opHtml += `<div>${op}: ${count}</div>`;
+                        }
+                        tdOp.innerHTML = opHtml || '-';
+                        tr.appendChild(tdOp);
+
+                        tbody.appendChild(tr);
+                    });
+
+                    table.style.display = 'table';
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    document.getElementById('loading').textContent = 'Error loading schedule.';
+                });
+        });
+    </script>
+</body>
+</html>
