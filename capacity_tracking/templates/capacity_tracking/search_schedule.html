@@ -403,8 +403,7 @@
         <form class="search-form" method="GET" autocomplete="off">
             <div class="form-group">
                 <label>From Port</label>
-                <input type="text" id="from_port_input" placeholder="e.g. Jebel Ali"
-                    value="{{ request.GET.from_port_label }}">
+                <input type="text" id="from_port_input" placeholder="e.g. Jebel Ali" value="{{ request.GET.from_port_label }}">
                 <input type="hidden" id="from_port_id" name="from_port_id" value="{{ request.GET.from_port_id }}">
             </div>
             <div class="form-group">
@@ -414,15 +413,12 @@
             </div>
             <div class="form-group">
                 <label>Vessel / Voyage</label>
-                <input type="text" id="vessel_input" placeholder="Search vessel..."
-                    value="{{ request.GET.vessel_label }}">
-                <input type="hidden" id="vessel_schedule_id" name="vessel_schedule_id"
-                    value="{{ request.GET.vessel_schedule_id }}">
+                <input type="text" id="vessel_input" placeholder="Search vessel..." value="{{ request.GET.vessel_label }}">
+                <input type="hidden" id="vessel_schedule_id" name="vessel_schedule_id" value="{{ request.GET.vessel_schedule_id }}">
             </div>
             <div class="form-group">
                 <label>Date Range</label>
-                <input type="text" placeholder="Select dates (Optional)" disabled
-                    style="background-color: #f3f4f6; cursor: not-allowed; color: #9ca3af;" title="Coming Soon">
+                <input type="text" placeholder="Select dates (Optional)" disabled style="background-color: #f3f4f6; cursor: not-allowed; color: #9ca3af;" title="Coming Soon">
             </div>
 
             <input type="hidden" name="from_port_label" id="from_port_label" value="{{ request.GET.from_port_label }}">
@@ -517,9 +513,10 @@
                             <span class="balance-highlight">{{ schedule.total_balance }}</span>
                         </td>
                         <td>
-                            <button class="btn-view-slots" onclick="toggleDetails('details-{{ schedule.id }}')" {% if schedule.total_balance == 0 %}disabled{% endif %}>
-                                View Slots
-                            </button>
+                            <div style="display: flex; gap: 5px; justify-content: flex-end;">
+                                <button class="btn-view-slots" onclick="toggleDetails('details-{{ schedule.id }}')" {% if schedule.total_balance == 0 %}disabled{% endif %}>View Itinerary & Slots</button>
+                                <button onclick="openRequestModal('', '', '', '', true)" style="padding: 6px 12px; background-color: #eab308; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 0.85rem; font-weight: 500;">Request Slots</button>
+                            </div>
                         </td>
                     </tr>
 
@@ -530,6 +527,8 @@
                                     <thead>
                                         <tr>
                                             <th>Port Pair</th>
+                                            <th>ETD (POL)</th>
+                                            <th>ETA (POD)</th>
                                             <th>Operator</th>
                                             <th>Criteria</th>
                                             <th>Rate</th>
@@ -540,45 +539,73 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        {% for opening in schedule.slot_openings %}
-                                        {% for status in opening.statuses %}
-                                        <tr>
-                                            <td>{{ opening.port_pair_from }} <span style="color:#d1d5db">→</span> {{ opening.port_pair_to }}</td>
-                                            <td><span style="font-weight: 500;">{{ opening.operator_name }}</span></td>
-                                            <td>{{ opening.criteria_display }}</td>
-                                            <td>{{ opening.rate }}</td>
-                                            <td>
-                                                {% if opening.arrival_voyage %}
-                                                <span style="font-size: 0.85rem; color: var(--primary-color); font-weight: 600;">{{ opening.arrival_voyage }}</span>
-                                                {% else %}
-                                                <span style="color: #9ca3af;">-</span>
-                                                {% endif %}
+                                        {% for group in schedule.grouped_openings %}
+                                        <tr class="group-header">
+                                            <td colspan="10" style="background-color: #e5e7eb; font-weight: bold; color: #374151;">
+                                                PORT OF LOADING: {{ group.port_name }} ({{ group.port_code }})
                                             </td>
-                                            <td>{{ status.total_slots }}</td>
-                                            <td>
-                                                <div style="display: flex; flex-direction: column;">
-                                                    <span style="font-weight: 600;">{{ status.blocked }}</span>
-                                                    <span style="font-size: 0.75rem; color: #6b7280;">
-                                                        (Prov: {{ status.provisioned_slots }}, Used: {{ status.used_slots }})
-                                                    </span>
-                                                </div>
-                                            </td>
-                                            <td class="detail-balance">
-                                                {{ status.balance }}
-                                                {% if status.balance < 10 %} <button
-                                                    onclick="openRequestModal('{{ opening.operator_name }}', '{{ opening.criteria_display }}')"
-                                                    style="display: block; margin-top: 5px; font-size: 0.7rem; padding: 2px 6px; background-color: #eab308; color: white; border: none; border-radius: 4px; cursor: pointer;">
-                                                    Request</button>
+                                        </tr>
+                                        {% for opening in group.openings %}
+                                            {% if opening.statuses %}
+                                                {% for status in opening.statuses %}
+                                                <tr>
+                                                    {% if forloop.first %}
+                                                    <td rowspan="{{ opening.statuses|length }}">
+                                                        <span class="port-pair">{{ group.port_code }} <span style="color:#9ca3af">→</span> {{ opening.port_pair_to }}</span>
+                                                    </td>
+                                                    <td rowspan="{{ opening.statuses|length }}">
+                                                        {% if group.etd %}{{ group.etd|date:"d M Y" }}{% else %}-{% endif %}
+                                                    </td>
+                                                    <td rowspan="{{ opening.statuses|length }}">
+                                                        {% if opening.dest_eta %}{{ opening.dest_eta|date:"d M Y" }}{% else %}-{% endif %}
+                                                    </td>
+                                                    <td rowspan="{{ opening.statuses|length }}">{{ opening.operator_name }}</td>
+                                                    <td rowspan="{{ opening.statuses|length }}">{{ opening.opening_criteria }}</td>
+                                                    <td rowspan="{{ opening.statuses|length }}">{{ opening.rate }}</td>
+                                                    <td rowspan="{{ opening.statuses|length }}">{{ opening.arrival_voyage }}</td>
                                                     {% endif %}
+                                                    
+                                                    <td>{{ status.total_slots }}</td>
+                                                    <td>
+                                                        {{ status.blocked }}
+                                                        <span style="font-size: 0.75rem; color: #6b7280; display: block;">(Prov: {{ status.provisioned_slots }}, Used: {{ status.used_slots }})</span>
+                                                    </td>
+                                                    <td>
+                                                        <div style="display: flex; align-items: center; justify-content: space-between;">
+                                                            <span style="font-weight: bold; color: #111827;">{{ status.balance }}</span>
+                                                            {% if status.balance < 10 %}
+                                                            <button onclick="openRequestModal('{{ opening.operator_name }}', '{{ opening.opening_criteria }}', '{{ group.port_name }} ({{ group.port_code }})', '{{ opening.port_pair_to }}', false)" 
+                                                                style="padding: 2px 8px; background-color: #eab308; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 0.75rem;">
+                                                                Request
+                                                            </button>
+                                                            {% endif %}
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                {% endfor %}
+                                            {% else %}
+                                                <tr>
+                                                    <td>
+                                                        <span class="port-pair">{{ group.port_code }} <span style="color:#9ca3af">→</span> {{ opening.port_pair_to }}</span>
+                                                    </td>
+                                                    <td>{% if group.etd %}{{ group.etd|date:"d M Y" }}{% else %}-{% endif %}</td>
+                                                    <td>{% if opening.dest_eta %}{{ opening.dest_eta|date:"d M Y" }}{% else %}-{% endif %}</td>
+                                                    <td>{{ opening.operator_name }}</td>
+                                                    <td>{{ opening.opening_criteria }}</td>
+                                                    <td>{{ opening.rate }}</td>
+                                                    <td>{{ opening.arrival_voyage }}</td>
+                                                    <td colspan="3" style="text-align: center; color: #9ca3af;">No status info</td>
+                                                </tr>
+                                            {% endif %}
+                                        {% endfor %}
+                                        {% endfor %}
+                                        {% if not schedule.grouped_openings %}
+                                        <tr>
+                                            <td colspan="10" style="text-align:center; padding: 20px; color: #6b7280;">
+                                                No slot details available for this schedule.
                                             </td>
                                         </tr>
-                                        {% endfor %}
-                                        {% empty %}
-                                        <tr>
-                                            <td colspan="8" style="text-align:center; color:#9ca3af; padding: 24px;">No
-                                                slot details available for this schedule.</td>
-                                        </tr>
-                                        {% endfor %}
+                                        {% endif %}
                                     </tbody>
                                 </table>
                             </div>
@@ -587,163 +614,209 @@
                     {% endfor %}
                 </tbody>
             </table>
+            {% endif %}
         </div>
-        {% endif %}
-    </div>
 
-    <!-- Request Modal -->
-    <div id="requestModal" class="modal"
-        style="display:none; position:fixed; z-index:1000; left:0; top:0; width:100%; height:100%; overflow:auto; background-color:rgba(0,0,0,0.4);">
-        <div class="modal-content"
-            style="background-color:#fefefe; margin:15% auto; padding:24px; border:1px solid #888; width:400px; border-radius: 8px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);">
-            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px;">
-                <h3 style="margin:0; font-size:1.25rem; color:var(--primary-color);">Request Additional Slots</h3>
-                <span class="close" onclick="closeRequestModal()"
-                    style="color:#aaa; font-size:28px; font-weight:bold; cursor:pointer;">&times;</span>
+        <!-- Request Modal -->
+        <div id="requestModal" class="modal" style="display:none; position:fixed; z-index:1000; left:0; top:0; width:100%; height:100%; overflow:auto; background-color:rgba(0,0,0,0.4);">
+            <div class="modal-content" style="background-color:#fefefe; margin:15% auto; padding:24px; border:1px solid #888; width:450px; border-radius: 8px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);">
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px;">
+                    <h3 style="margin:0; font-size:1.25rem; color:var(--primary-color);">Request Additional Slots</h3>
+                    <span class="close" onclick="closeRequestModal()" style="color:#aaa; font-size:28px; font-weight:bold; cursor:pointer;">&times;</span>
+                </div>
+                <form onsubmit="event.preventDefault(); alert('Request submitted successfully!'); closeRequestModal();">
+                    <div style="display: flex; gap: 10px; margin-bottom: 15px;">
+                        <div style="flex: 1;">
+                            <label style="display:block; font-size:0.875rem; font-weight:500; margin-bottom:5px;">From Port</label>
+                            <div style="position: relative;">
+                                <input type="text" id="req_from" autocomplete="off" style="width:100%; padding:8px; border: 1px solid #d1d5db; border-radius: 4px; color:#4b5563;">
+                                <input type="hidden" id="req_from_id" name="req_from_id">
+                            </div>
+                        </div>
+                        <div style="flex: 1;">
+                            <label style="display:block; font-size:0.875rem; font-weight:500; margin-bottom:5px;">To Port</label>
+                            <div style="position: relative;">
+                                <input type="text" id="req_to" autocomplete="off" style="width:100%; padding:8px; border: 1px solid #d1d5db; border-radius: 4px; color:#4b5563;">
+                                <input type="hidden" id="req_to_id" name="req_to_id">
+                            </div>
+                        </div>
+                    </div>
+                    <div style="margin-bottom: 15px;">
+                        <label style="display:block; font-size:0.875rem; font-weight:500; margin-bottom:5px;">Operator</label>
+                        <div style="position: relative;">
+                            <input type="text" id="req_operator" autocomplete="off" style="width:100%; padding:8px; border: 1px solid #d1d5db; border-radius: 4px; color:#4b5563;">
+                            <input type="hidden" id="req_operator_id" name="req_operator_id">
+                        </div>
+                    </div>
+                    <div style="margin-bottom: 15px;">
+                        <label style="display:block; font-size:0.875rem; font-weight:500; margin-bottom:5px;">Criteria</label>
+                        <select id="req_criteria" style="width:100%; padding:8px; border: 1px solid #d1d5db; border-radius: 4px; color:#4b5563; background-color: white;">
+                            <option value="">Select Criteria...</option>
+                            <option value="DEAD">Dead Freight contract</option>
+                            <option value="SEGM">Segment Contract</option>
+                            <option value="SEGMDIR">Segment Direct</option>
+                            <option value="SEGMTHR">Segment Through Slot</option>
+                        </select>
+                    </div>
+                    <div style="margin-bottom: 20px;">
+                        <label style="display:block; font-size:0.875rem; font-weight:500; margin-bottom:5px;">Additional Slots Needed</label>
+                        <input type="number" min="1" required placeholder="Enter quantity" style="width:100%; padding:8px; border: 1px solid #d1d5db; border-radius: 4px;">
+                    </div>
+                    <div style="text-align:right;">
+                        <button type="button" onclick="closeRequestModal()" style="padding: 8px 16px; margin-right: 8px; background-color: white; border: 1px solid #d1d5db; border-radius: 4px; cursor: pointer;">Cancel</button>
+                        <button type="submit" style="background-color: var(--primary-color); color: white; padding: 8px 16px; border: none; border-radius: 4px; cursor: pointer;">Submit Request</button>
+                    </div>
+                </form>
             </div>
-            <form onsubmit="event.preventDefault(); alert('Request submitted successfully!'); closeRequestModal();">
-                <div style="margin-bottom: 15px;">
-                    <label
-                        style="display:block; font-size:0.875rem; font-weight:500; margin-bottom:5px;">Operator</label>
-                    <input type="text" id="req_operator" readonly
-                        style="width:100%; padding:8px; background-color: #f3f4f6; border: 1px solid #d1d5db; border-radius: 4px; color:#4b5563;">
-                </div>
-                <div style="margin-bottom: 15px;">
-                    <label
-                        style="display:block; font-size:0.875rem; font-weight:500; margin-bottom:5px;">Criteria</label>
-                    <input type="text" id="req_criteria" readonly
-                        style="width:100%; padding:8px; background-color: #f3f4f6; border: 1px solid #d1d5db; border-radius: 4px; color:#4b5563;">
-                </div>
-                <div style="margin-bottom: 20px;">
-                    <label style="display:block; font-size:0.875rem; font-weight:500; margin-bottom:5px;">Additional
-                        Slots Needed</label>
-                    <input type="number" min="1" required placeholder="Enter quantity"
-                        style="width:100%; padding:8px; border: 1px solid #d1d5db; border-radius: 4px;">
-                </div>
-                <div style="text-align:right;">
-                    <button type="button" onclick="closeRequestModal()"
-                        style="padding: 8px 16px; margin-right: 8px; background-color: white; border: 1px solid #d1d5db; border-radius: 4px; cursor: pointer;">Cancel</button>
-                    <button type="submit"
-                        style="background-color: var(--primary-color); color: white; padding: 8px 16px; border: none; border-radius: 4px; cursor: pointer;">Submit
-                        Request</button>
-                </div>
-            </form>
         </div>
-    </div>
 
-    <script>
-        function clearSearch() {
-            window.location.href = window.location.pathname;
-        }
-
-        function toggleDetails(rowId) {
-            const row = document.getElementById(rowId);
-            if (row.classList.contains('active')) {
-                row.classList.remove('active');
-            } else {
-                row.classList.add('active');
+        <script>
+            function clearSearch() {
+                window.location.href = window.location.pathname;
             }
-        }
 
-        function openRequestModal(operator, criteria) {
-            document.getElementById('req_operator').value = operator;
-            document.getElementById('req_criteria').value = criteria;
-            document.getElementById('requestModal').style.display = "block";
-        }
-
-        function closeRequestModal() {
-            document.getElementById('requestModal').style.display = "none";
-        }
-
-        // Close modal when clicking outside
-        window.onclick = function (event) {
-            const modal = document.getElementById('requestModal');
-            if (event.target == modal) {
-                modal.style.display = "none";
+            function toggleDetails(rowId) {
+                const row = document.getElementById(rowId);
+                if (row.classList.contains('active')) {
+                    row.classList.remove('active');
+                } else {
+                    row.classList.add('active');
+                }
             }
-        }
 
+            function openRequestModal(operator, criteria, fromPort, toPort, isManual) {
+                const opInput = document.getElementById('req_operator');
+                const critInput = document.getElementById('req_criteria');
+                const fromInput = document.getElementById('req_from');
+                const toInput = document.getElementById('req_to');
 
-        function autocomplete(inp, apiUrl, idFieldId, labelFieldId) {
-            let currentFocus;
-            inp.addEventListener("input", function (e) {
-                let val = this.value;
-                closeAllLists();
-                if (!val) { return false; }
-                currentFocus = -1;
+                opInput.value = operator || '';
+                critInput.value = criteria || '';
+                fromInput.value = fromPort || '';
+                toInput.value = toPort || '';
 
-                const listDiv = document.createElement("DIV");
-                listDiv.setAttribute("id", this.id + "autocomplete-list");
-                listDiv.setAttribute("class", "autocomplete-items");
-                this.parentNode.appendChild(listDiv);
-
-                fetch(`${apiUrl}?q=${val}`)
-                    .then(response => response.json())
-                    .then(data => {
-                        data.forEach(item => {
-                            const itemDiv = document.createElement("DIV");
-                            itemDiv.innerHTML = `<strong>${item.label.substr(0, val.length)}</strong>${item.label.substr(val.length)}`;
-                            itemDiv.innerHTML += `<input type='hidden' value='${item.id}' data-label='${item.label}'>`;
-                            itemDiv.addEventListener("click", function (e) {
-                                inp.value = this.getElementsByTagName("input")[0].getAttribute('data-label');
-                                document.getElementById(idFieldId).value = this.getElementsByTagName("input")[0].value;
-                                if (labelFieldId) document.getElementById(labelFieldId).value = inp.value;
-                                closeAllLists();
-                            });
-                            listDiv.appendChild(itemDiv);
-                        });
+                if (isManual) {
+                    // Enable editing
+                    [opInput, critInput, fromInput, toInput].forEach(el => {
+                        el.readOnly = false;
+                        el.style.backgroundColor = "white";
+                        el.style.cursor = "text";
+                        el.disabled = false; // Ensure select is enabled
                     });
-            });
+                } else {
+                    // Readonly mode
+                    [opInput, fromInput, toInput].forEach(el => {
+                        el.readOnly = true;
+                        el.style.backgroundColor = "#f3f4f6";
+                        el.style.cursor = "not-allowed";
+                    });
+                    // Handle select separately
+                    critInput.disabled = true;
+                    critInput.style.backgroundColor = "#f3f4f6";
+                    critInput.style.cursor = "not-allowed";
+                }
+                document.getElementById('requestModal').style.display = "block";
+            }
 
-            inp.addEventListener("keydown", function (e) {
-                let x = document.getElementById(this.id + "autocomplete-list");
-                if (x) x = x.getElementsByTagName("div");
-                if (e.keyCode == 40) { // DOWN
-                    currentFocus++;
-                    addActive(x);
-                } else if (e.keyCode == 38) { // UP
-                    currentFocus--;
-                    addActive(x);
-                } else if (e.keyCode == 13) { // ENTER
-                    e.preventDefault();
-                    if (currentFocus > -1) {
-                        if (x) x[currentFocus].click();
+            function closeRequestModal() {
+                document.getElementById('requestModal').style.display = "none";
+            }
+
+            // Close modal when clicking outside
+            window.onclick = function (event) {
+                const modal = document.getElementById('requestModal');
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            }
+
+
+            function autocomplete(inp, apiUrl, idFieldId, labelFieldId) {
+                let currentFocus;
+                inp.addEventListener("input", function (e) {
+                    let val = this.value;
+                    closeAllLists();
+                    if (!val) { return false; }
+                    currentFocus = -1;
+
+                    const listDiv = document.createElement("DIV");
+                    listDiv.setAttribute("id", this.id + "autocomplete-list");
+                    listDiv.setAttribute("class", "autocomplete-items");
+                    this.parentNode.appendChild(listDiv);
+
+                    fetch(`${apiUrl}?q=${val}`)
+                        .then(response => response.json())
+                        .then(data => {
+                            data.forEach(item => {
+                                const itemDiv = document.createElement("DIV");
+                                itemDiv.innerHTML = `<strong>${item.label.substr(0, val.length)}</strong>${item.label.substr(val.length)}`;
+                                itemDiv.innerHTML += `<input type='hidden' value='${item.id}' data-label='${item.label}'>`;
+                                itemDiv.addEventListener("click", function (e) {
+                                    inp.value = this.getElementsByTagName("input")[0].getAttribute('data-label');
+                                    document.getElementById(idFieldId).value = this.getElementsByTagName("input")[0].value;
+                                    if (labelFieldId) document.getElementById(labelFieldId).value = inp.value;
+                                    closeAllLists();
+                                });
+                                listDiv.appendChild(itemDiv);
+                            });
+                        });
+                });
+
+                inp.addEventListener("keydown", function (e) {
+                    let x = document.getElementById(this.id + "autocomplete-list");
+                    if (x) x = x.getElementsByTagName("div");
+                    if (e.keyCode == 40) { // DOWN
+                        currentFocus++;
+                        addActive(x);
+                    } else if (e.keyCode == 38) { // UP
+                        currentFocus--;
+                        addActive(x);
+                    } else if (e.keyCode == 13) { // ENTER
+                        e.preventDefault();
+                        if (currentFocus > -1) {
+                            if (x) x[currentFocus].click();
+                        }
+                    }
+                });
+
+                function addActive(x) {
+                    if (!x) return false;
+                    removeActive(x);
+                    if (currentFocus >= x.length) currentFocus = 0;
+                    if (currentFocus < 0) currentFocus = (x.length - 1);
+                    x[currentFocus].classList.add("autocomplete-active");
+                }
+
+                function removeActive(x) {
+                    for (let i = 0; i < x.length; i++) {
+                        x[i].classList.remove("autocomplete-active");
                     }
                 }
-            });
 
-            function addActive(x) {
-                if (!x) return false;
-                removeActive(x);
-                if (currentFocus >= x.length) currentFocus = 0;
-                if (currentFocus < 0) currentFocus = (x.length - 1);
-                x[currentFocus].classList.add("autocomplete-active");
-            }
-
-            function removeActive(x) {
-                for (let i = 0; i < x.length; i++) {
-                    x[i].classList.remove("autocomplete-active");
-                }
-            }
-
-            function closeAllLists(elmnt) {
-                const x = document.getElementsByClassName("autocomplete-items");
-                for (let i = 0; i < x.length; i++) {
-                    if (elmnt != x[i] && elmnt != inp) {
-                        x[i].parentNode.removeChild(x[i]);
+                function closeAllLists(elmnt) {
+                    const x = document.getElementsByClassName("autocomplete-items");
+                    for (let i = 0; i < x.length; i++) {
+                        if (elmnt != x[i] && elmnt != inp) {
+                            x[i].parentNode.removeChild(x[i]);
+                        }
                     }
                 }
+
+                document.addEventListener("click", function (e) {
+                    closeAllLists(e.target);
+                });
             }
 
-            document.addEventListener("click", function (e) {
-                closeAllLists(e.target);
-            });
-        }
+            // Main Search Autocomplete
+            autocomplete(document.getElementById("from_port_input"), "/api/autocomplete/port/", "from_port_id", "from_port_label");
+            autocomplete(document.getElementById("to_port_input"), "/api/autocomplete/port/", "to_port_id", "to_port_label");
+            autocomplete(document.getElementById("vessel_input"), "/api/autocomplete/vessel/", "vessel_schedule_id", "vessel_label");
 
-        autocomplete(document.getElementById("from_port_input"), "/api/autocomplete/port/", "from_port_id", "from_port_label");
-        autocomplete(document.getElementById("to_port_input"), "/api/autocomplete/port/", "to_port_id", "to_port_label");
-        autocomplete(document.getElementById("vessel_input"), "/api/autocomplete/vessel/", "vessel_schedule_id", "vessel_label");
-    </script>
+            // Modal Autocomplete
+            autocomplete(document.getElementById("req_from"), "/api/autocomplete/port/", "req_from_id");
+            autocomplete(document.getElementById("req_to"), "/api/autocomplete/port/", "req_to_id");
+            autocomplete(document.getElementById("req_operator"), "/api/autocomplete/operator/", "req_operator_id");
+        </script>
 </body>
 
 </html>

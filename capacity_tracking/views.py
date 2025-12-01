@@ -124,7 +124,7 @@ def search_schedule_view(request):
     schedule_ids = [s['id'] for s in vessel_schedules]
 
     port_of_calls = list(PortOfCall.objects.filter(vessel_schedule_id__in=schedule_ids).values(
-        'id','eta', 'etd','ata', 'atd', 'status', 'port_status', 'call_no','vessel_schedule_id', 'port_id'
+        'id','eta', 'etd','ata', 'atd', 'status', 'port_status', 'call_no','vessel_schedule_id', 'port_id', 'port_order'
     ).annotate(port_code=F('port__code'), port_name=F('port__name'), to_port_code=F('to_port__code')).order_by('port_order'))
 
     # Filter Slot Openings based on search criteria
@@ -350,8 +350,53 @@ def search_schedule_view(request):
         
         schedule['total_balance'] = total_balance
 
+        schedule['total_balance'] = total_balance
+
         schedule['port_calls'] = schedule_port_calls
         schedule['slot_openings'] = schedule_slot_openings
+        
+        # Group Openings by Departure Port (for Detail Panel)
+        grouped_openings_map = {}
+        
+        # Create a lookup for ETA by Port Code (for destination ETA)
+        port_eta_map = {pc['port_code']: pc['eta'] for pc in schedule_port_calls}
+
+        # Initialize groups from Port Calls to maintain order
+        for pc in schedule_port_calls:
+            grouped_openings_map[pc['port_id']] = {
+                'port_name': pc['port_name'],
+                'port_code': pc['port_code'],
+                'etd': pc['etd'],  # Add ETD for the departure port
+                'openings': [],
+                'order': pc['port_order']
+            }
+
+        # Add openings to groups
+        for op in schedule_slot_openings:
+            pid = op['call_port_id']
+            # Add ETA for the destination port
+            dest_code = op.get('port_pair_to')
+            op['dest_eta'] = port_eta_map.get(dest_code)
+
+            if pid not in grouped_openings_map:
+                # Handle orphaned openings (port not in schedule)
+                grouped_openings_map[pid] = {
+                    'port_name': op['port_pair_from'], # Fallback to code if name unavailable
+                    'port_code': op['port_pair_from'],
+                    'etd': None, # No ETD available if not in schedule
+                    'openings': [],
+                    'order': 9999 # Place at the end
+                }
+            grouped_openings_map[pid]['openings'].append(op)
+
+        # Convert map to sorted list, filtering out empty groups
+        grouped_openings = sorted(
+            [g for g in grouped_openings_map.values() if g['openings']],
+            key=lambda x: x['order']
+        )
+        
+        schedule['grouped_openings'] = grouped_openings
+        
         out_data_list.append(schedule)
 
     # Calculate Summary Metrics
@@ -365,8 +410,14 @@ def search_schedule_view(request):
             all_operator_ids.add(opening['operator_id'])
     unique_operators_count = len(all_operator_ids)
 
+    # Get all ports and operators for typeahead
+    all_ports = Port.objects.all().order_by('name').values('name', 'code')
+    all_operators = Vendor.objects.all().order_by('name').values('name')
+
     context = {
         'schedules': out_data_list,
+        'all_ports': list(all_ports),
+        'all_operators': list(all_operators),
         'summary': {
             'total_schedules': total_schedules,
             'total_balance_slots': total_balance_slots,

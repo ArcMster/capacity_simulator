@@ -170,7 +170,7 @@ class SlotWeightStatus(models.Model):
                                             default=0)
     
     def __str__(self):
-        return f'{self.slot_opening.vessel.name} - {self.slot_opening.vessel_schedule.voyage} | {self.status}'
+        return f'{self.slot_opening.vessel.name} - {self.slot_opening.vessel_schedule.voyage} | {self.status} | {self.slot_opening.port.name} | {self.slot_opening.to_port.name}'
 
 
 class SlotContract(models.Model):
