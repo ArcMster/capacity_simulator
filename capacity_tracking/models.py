@@ -86,7 +86,7 @@ class PortOfCall(models.Model):
                                 related_query_name='from_port_of_calls',
                                 null=True, blank=True)
     vessel_schedule = models.ForeignKey(VesselSchedule,
-                                        on_delete=models.PROTECT,
+                                        on_delete=models.CASCADE,
                                         related_name='port_of_calls',
                                         related_query_name='port_of_calls')
     eta = models.DateTimeField(null=True, blank=True)

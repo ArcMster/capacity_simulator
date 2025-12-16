@@ -1,0 +1,107 @@
+/home/sreenath/inTEUtion/environments/intv2env/lib/python3.10/site-packages/google/api_core/_python_version_support.py:266: FutureWarning: You are using a Python version (3.10.12) which Google will stop supporting in new releases of google.api_core once it reaches its end of life (2026-10-04). Please upgrade to the latest Python version, or at least Python 3.11, to continue receiving updates for google.api_core past that date.
+  warnings.warn(message, FutureWarning)
+Testing parser with image: /home/sreenath/.gemini/antigravity/brain/e2042dfd-7e49-42f7-a927-75c5acc533cd/uploaded_image_1_1764615783547.png
+DEBUG: Trying model gemini-2.0-flash
+DEBUG: Raw response: {
+  "header": [
+    "Vessel",
+    "Voyage",
+    "AEJEA\nJebel Ali\nJA2/JA3\nWed-Fri\n23:00-08:00",
+    "OMSOH\nSohar\nSOH\nSat-Sun\n14:00-10:00",
+    "Voyage",
+    "INMUN\nMundra\nAMT\nTue-Wed\n18:00-22:00",
+    "INHZR\nHazira\nHZR\nThu-Fri\n20:00-14:00",
+    "INNSA\nNhava Sheva\nGTI\nSat-Sun\n10:00-10:00",
+    "Voyage",
+    "AEJEA\nJebel Ali\nJA2/JA3\nWed-Fri\n23:00-08:00"
+  ],
+  "rows": [
+    {
+      "vessel": "ZHONG GU NAN NING",
+      "cells": [
+        "25041",
+        "09-Oct\n12-Oct",
+        "13-Oct\n14-Oct",
+        "25041",
+        "16-Oct\n17-Oct",
+        "18-Oct\n19-Oct",
+        "19-Oct\n20-Oct",
+        "25043",
+        "23-Oct\n26-Oct"
+      ]
+    },
+    {
+      "vessel": "CELSIUS NAIROBI",
+      "cells": [
+        "0943",
+        "15-Oct\n18-Oct",
+        "18-Oct\n19-Oct",
+        "0943",
+        "22-Oct\n23-Oct",
+        "24-Oct\n24-Oct",
+        "25-Oct\n25-Oct",
+        "001",
+        "03-Nov\n05-Nov"
+      ]
+    },
+    {
+      "vessel": "ZHONG GU NAN NING",
+      "...
+[
+  {
+    "v": "ZHONG GU NAN NING",
+    "voy": "25049",
+    "s": "UNKNOWN",
+    "sn": "UNKNOWN",
+    "p": [
+      {
+        "c": "UNKNOWN",
+        "n": "INNSA\nNhava Sheva\nGTI\nSat-Sun\n10:00-10:00",
+        "a": "2025-11-30 00:00",
+        "d": "2025-12-01 00:00",
+        "st": "NOT ARRIVED",
+        "ps": "ACTIVE"
+      },
+      {
+        "c": "UNKNOWN",
+        "n": "AEJEA\nJebel Ali\nJA2/JA3\nWed-Fri\n23:00-08:00",
+        "a": "2025-12-04 00:00",
+        "d": "2025-12-05 00:00",
+        "st": "NOT ARRIVED",
+        "ps": "ACTIVE"
+      },
+      {
+        "c": "UNKNOWN",
+        "n": "OMSOH\nSohar\nSOH\nSat-Sun\n14:00-10:00",
+        "a": "2025-12-07 00:00",
+        "d": "2025-12-08 00:00",
+        "st": "NOT ARRIVED",
+        "ps": "ACTIVE"
+      },
+      {
+        "c": "UNKNOWN",
+        "n": "INMUN\nMundra\nAMT\nTue-Wed\n18:00-22:00",
+        "a": "2025-12-10 00:00",
+        "d": "2025-12-11 00:00",
+        "st": "NOT ARRIVED",
+        "ps": "ACTIVE"
+      },
+      {
+        "c": "UNKNOWN",
+        "n": "INHZR\nHazira\nHZR\nThu-Fri\n20:00-14:00",
+        "a": "2025-12-12 00:00",
+        "d": "2025-12-13 00:00",
+        "st": "NOT ARRIVED",
+        "ps": "ACTIVE"
+      },
+      {
+        "c": "UNKNOWN",
+        "n": "INNSA\nNhava Sheva\nGTI\nSat-Sun\n10:00-10:00",
+        "a": "2025-12-14 00:00",
+        "d": "2025-12-15 00:00",
+        "st": "NOT ARRIVED",
+        "ps": "ACTIVE"
+      }
+    ]
+  }
+]

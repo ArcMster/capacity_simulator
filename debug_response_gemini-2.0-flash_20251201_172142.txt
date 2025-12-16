@@ -1,0 +1,772 @@
+{
+  "schedules": [
+    {
+      "v": "ZHONG GU NAN NING",
+      "voy": "25041",
+      "s": "ASX",
+      "sn": "ARABIAN SEA X-PRESS",
+      "p": [
+        {
+          "c": "AEJEA",
+          "n": "Jebel Ali",
+          "a": "2023-10-09 23:00",
+          "d": "2023-10-12 08:00",
+          "st": "NOT ARRIVED",
+          "ps": "ACTIVE"
+        },
+        {
+          "c": "OMSOH",
+          "n": "Sohar",
+          "a": "2023-10-13 14:00",
+          "d": "2023-10-14 10:00",
+          "st": "NOT ARRIVED",
+          "ps": "ACTIVE"
+        },
+        {
+          "c": "INMUN",
+          "n": "Mundra",
+          "a": "2023-10-16 18:00",
+          "d": "2023-10-17 22:00",
+          "st": "NOT ARRIVED",
+          "ps": "ACTIVE"
+        },
+        {
+          "c": "INHZR",
+          "n": "Hazira",
+          "a": "2023-10-18 20:00",
+          "d": "2023-10-19 14:00",
+          "st": "NOT ARRIVED",
+          "ps": "ACTIVE"
+        },
+        {
+          "c": "INNSA",
+          "n": "Nhava Sheva",
+          "a": "2023-10-19 10:00",
+          "d": "2023-10-20 10:00",
+          "st": "NOT ARRIVED",
+          "ps": "ACTIVE"
+        },
+        {
+          "c": "AEJEA",
+          "n": "Jebel Ali",
+          "a": "2023-10-23 23:00",
+          "d": "2023-10-26 08:00",
+          "st": "NOT ARRIVED",
+          "ps": "ACTIVE"
+        }
+      ]
+    },
+    {
+      "v": "CELSIUS NAIROBI",
+      "voy": "0943",
+      "s": "ASX",
+      "sn": "ARABIAN SEA X-PRESS",
+      "p": [
+        {
+          "c": "AEJEA",
+          "n": "Jebel Ali",
+          "a": "2023-10-15 23:00",
+          "d": "2023-10-18 08:00",
+          "st": "NOT ARRIVED",
+          "ps": "ACTIVE"
+        },
+        {
+          "c": "OMSOH",
+          "n": "Sohar",
+          "a": "2023-10-18 14:00",
+          "d": "2023-10-19 10:00",
+          "st": "NOT ARRIVED",
+          "ps": "ACTIVE"
+        },
+        {
+          "c": "INMUN",
+          "n": "Mundra",
+          "a": "2023-10-22 18:00",
+          "d": "2023-10-23 22:00",
+          "st": "NOT ARRIVED",
+          "ps": "ACTIVE"
+        },
+        {
+          "c": "INHZR",
+          "n": "Hazira",
+          "a": "2023-10-24 20:00",
+          "d": "2023-10-24 14:00",
+          "st": "NOT ARRIVED",
+          "ps": "ACTIVE"
+        },
+        {
+          "c": "INNSA",
+          "n": "Nhava Sheva",
+          "a": "2023-10-25 10:00",
+          "d": "2023-10-25 10:00",
+          "st": "NOT ARRIVED",
+          "ps": "ACTIVE"
+        },
+        {
+          "c": "AEJEA",
+          "n": "Jebel Ali",
+          "a": "2023-11-03 23:00",
+          "d": "2023-11-05 08:00",
+          "st": "NOT ARRIVED",
+          "ps": "ACTIVE"
+        }
+      ]
+    },
+    {
+      "v": "ZHONG GU NAN NING",
+      "voy": "25043",
+      "s": "ASX",
+      "sn": "ARABIAN SEA X-PRESS",
+      "p": [
+        {
+          "c": "AEJEA",
+          "n": "Jebel Ali",
+          "a": "2023-10-23 23:00",
+          "d": "2023-10-26 08:00",
+          "st": "NOT ARRIVED",
+          "ps": "ACTIVE"
+        },
+        {
+          "c": "OMSOH",
+          "n": "Sohar",
+          "a": "2023-10-27 14:00",
+          "d": "2023-10-28 10:00",
+          "st": "NOT ARRIVED",
+          "ps": "ACTIVE"
+        },
+        {
+          "c": "INMUN",
+          "n": "Mundra",
+          "a": "2023-10-31 18:00",
+          "d": "2023-10-31 22:00",
+          "st": "NOT ARRIVED",
+          "ps": "ACTIVE"
+        },
+        {
+          "c": "INHZR",
+          "n": "Hazira",
+          "a": "2023-11-04 20:00",
+          "d": "2023-11-04 14:00",
+          "st": "NOT ARRIVED",
+          "ps": "ACTIVE"
+        },
+        {
+          "c": "INNSA",
+          "n": "Nhava Sheva",
+          "a": "2023-11-02 10:00",
+          "d": "2023-11-03 10:00",
+          "st": "NOT ARRIVED",
+          "ps": "ACTIVE"
+        },
+        {
+          "c": "AEJEA",
+          "n": "Jebel Ali",
+          "a": "2023-11-07 23:00",
+          "d": "2023-11-09 08:00",
+          "st": "NOT ARRIVED",
+          "ps": "ACTIVE"
+        }
+      ]
+    },
+    {
+      "v": "EVERLASTING GRACE",
+      "voy": "001",
+      "s": "ASX",
+      "sn": "ARABIAN SEA X-PRESS",
+      "p": [
+        {
+          "c": "AEJEA",
+          "n": "Jebel Ali",
+          "a": "2023-11-03 23:00",
+          "d": "2023-11-05 08:00",
+          "st": "NOT ARRIVED",
+          "ps": "ACTIVE"
+        },
+        {
+          "c": "OMSOH",
+          "n": "Sohar",
+          "a": "2023-11-05 14:00",
+          "d": "2023-11-05 10:00",
+          "st": "OMITTED",
+          "ps": "OMITTED"
+        },
+        {
+          "c": "INMUN",
+          "n": "Mundra",
+          "a": "2023-11-10 18:00",
+          "d": "2023-11-12 22:00",
+          "st": "NOT ARRIVED",
+          "ps": "ACTIVE"
+        },
+        {
+          "c": "INHZR",
+          "n": "Hazira",
+          "a": "2023-11-04 20:00",
+          "d": "2023-11-04 14:00",
+          "st": "OMITTED",
+          "ps": "OMITTED"
+        },
+        {
+          "c": "INNSA",
+          "n": "Nhava Sheva",
+          "a": "2023-11-08 10:00",
+          "d": "2023-11-09 10:00",
+          "st": "NOT ARRIVED",
+          "ps": "ACTIVE"
+        },
+        {
+          "c": "AEJEA",
+          "n": "Jebel Ali",
+          "a": "2023-11-14 23:00",
+          "d": "2023-11-16 08:00",
+          "st": "NOT ARRIVED",
+          "ps": "ACTIVE"
+        }
+      ]
+    },
+    {
+      "v": "ZHONG GU NAN NING",
+      "voy": "25045",
+      "s": "ASX",
+      "sn": "ARABIAN SEA X-PRESS",
+      "p": [
+        {
+          "c": "AEJEA",
+          "n": "Jebel Ali",
+          "a": "2023-11-07 23:00",
+          "d": "2023-11-09 08:00",
+          "st": "NOT ARRIVED",
+          "ps": "ACTIVE"
+        },
+        {
+          "c": "OMSOH",
+          "n": "Sohar",
+          "a": "2023-11-10 14:00",
+          "d": "2023-11-11 10:00",
+          "st": "NOT ARRIVED",
+          "ps": "ACTIVE"
+        },
+        {
+          "c": "INMUN",
+          "n": "Mundra",
+          "a": "2023-11-14 18:00",
+          "d": "2023-11-15 22:00",
+          "st": "OMITTED",
+          "ps": "OMITTED"
+        },
+        {
+          "c": "INHZR",
+          "n": "Hazira",
+          "a": "2023-11-14 20:00",
+          "d": "2023-11-15 14:00",
+          "st": "NOT ARRIVED",
+          "ps": "ACTIVE"
+        },
+        {
+          "c": "INNSA",
+          "n": "Nhava Sheva",
+          "a": "2023-11-16 10:00",
+          "d": "2023-11-17 10:00",
+          "st": "NOT ARRIVED",
+          "ps": "ACTIVE"
+        },
+        {
+          "c": "AEJEA",
+          "n": "Jebel Ali",
+          "a": "2023-11-20 23:00",
+          "d": "2023-11-21 08:00",
+          "st": "NOT ARRIVED",
+          "ps": "ACTIVE"
+        }
+      ]
+    },
+    {
+      "v": "EVERLASTING GRACE",
+      "voy": "002",
+      "s": "ASX",
+      "sn": "ARABIAN SEA X-PRESS",
+      "p": [
+        {
+          "c": "AEJEA",
+          "n": "Jebel Ali",
+          "a": "2023-11-14 23:00",
+          "d": "2023-11-16 08:00",
+          "st": "NOT ARRIVED",
+          "ps": "ACTIVE"
+        },
+        {
+          "c": "OMSOH",
+          "n": "Sohar",
+          "a": "2023-11-17 14:00",
+          "d": "2023-11-18 10:00",
+          "st": "NOT ARRIVED",
+          "ps": "ACTIVE"
+        },
+        {
+          "c": "INMUN",
+          "n": "Mundra",
+          "a": "2023-11-20 18:00",
+          "d": "2023-11-21 22:00",
+          "st": "NOT ARRIVED",
+          "ps": "ACTIVE"
+        },
+        {
+          "c": "INHZR",
+          "n": "Hazira",
+          "a": "2023-11-22 20:00",
+          "d": "2023-11-23 14:00",
+          "st": "NOT ARRIVED",
+          "ps": "ACTIVE"
+        },
+        {
+          "c": "INNSA",
+          "n": "Nhava Sheva",
+          "a": "2023-11-23 10:00",
+          "d": "2023-11-25 10:00",
+          "st": "NOT ARRIVED",
+          "ps": "ACTIVE"
+        },
+        {
+          "c": "AEJEA",
+          "n": "Jebel Ali",
+          "a": "2023-11-28 23:00",
+          "d": "2023-11-30 08:00",
+          "st": "NOT ARRIVED",
+          "ps": "ACTIVE"
+        }
+      ]
+    },
+    {
+      "v": "ZHONG GU NAN NING",
+      "voy": "25047",
+      "s": "ASX",
+      "sn": "ARABIAN SEA X-PRESS",
+      "p": [
+        {
+          "c": "AEJEA",
+          "n": "Jebel Ali",
+          "a": "2023-11-20 23:00",
+          "d": "2023-11-21 08:00",
+          "st": "NOT ARRIVED",
+          "ps": "ACTIVE"
+        },
+        {
+          "c": "OMSOH",
+          "n": "Sohar",
+          "a": "2023-11-23 14:00",
+          "d": "2023-11-24 10:00",
+          "st": "NOT ARRIVED",
+          "ps": "ACTIVE"
+        },
+        {
+          "c": "INMUN",
+          "n": "Mundra",
+          "a": "2023-11-26 18:00",
+          "d": "2023-11-27 22:00",
+          "st": "NOT ARRIVED",
+          "ps": "ACTIVE"
+        },
+        {
+          "c": "INHZR",
+          "n": "Hazira",
+          "a": "2023-11-28 20:00",
+          "d": "2023-11-29 14:00",
+          "st": "NOT ARRIVED",
+          "ps": "ACTIVE"
+        },
+        {
+          "c": "INNSA",
+          "n": "Nhava Sheva",
+          "a": "2023-11-30 10:00",
+          "d": "2023-12-01 10:00",
+          "st": "NOT ARRIVED",
+          "ps": "ACTIVE"
+        },
+        {
+          "c": "AEJEA",
+          "n": "Jebel Ali",
+          "a": "2023-12-04 23:00",
+          "d": "2023-12-05 08:00",
+          "st": "NOT ARRIVED",
+          "ps": "ACTIVE"
+        }
+      ]
+    },
+    {
+      "v": "EVERLASTING GRACE",
+      "voy": "003",
+      "s": "ASX",
+      "sn": "ARABIAN SEA X-PRESS",
+      "p": [
+        {
+          "c": "AEJEA",
+          "n": "Jebel Ali",
+          "a": "2023-11-28 23:00",
+          "d": "2023-11-30 08:00",
+          "st": "NOT ARRIVED",
+          "ps": "ACTIVE"
+        },
+        {
+          "c": "OMSOH",
+          "n": "Sohar",
+          "a": "2023-12-01 14:00",
+          "d": "2023-12-02 10:00",
+          "st": "NOT ARRIVED",
+          "ps": "ACTIVE"
+        },
+        {
+          "c": "INMUN",
+          "n": "Mundra",
+          "a": "2023-12-04 18:00",
+          "d": "2023-12-05 22:00",
+          "st": "NOT ARRIVED",
+          "ps": "ACTIVE"
+        },
+        {
+          "c": "INHZR",
+          "n": "Hazira",
+          "a": "2023-12-06 20:00",
+          "d": "2023-12-07 14:00",
+          "st": "NOT ARRIVED",
+          "ps": "ACTIVE"
+        },
+        {
+          "c": "INNSA",
+          "n": "Nhava Sheva",
+          "a": "2023-12-08 10:00",
+          "d": "2023-12-09 10:00",
+          "st": "NOT ARRIVED",
+          "ps": "ACTIVE"
+        },
+        {
+          "c": "AEJEA",
+          "n": "Jebel Ali",
+          "a": "2023-12-12 23:00",
+          "d": "2023-12-14 08:00",
+          "st": "NOT ARRIVED",
+          "ps": "ACTIVE"
+        }
+      ]
+    },
+    {
+      "v": "ZHONG GU NAN NING",
+      "voy": "25049",
+      "s": "ASX",
+      "sn": "ARABIAN SEA X-PRESS",
+      "p": [
+        {
+          "c": "AEJEA",
+          "n": "Jebel Ali",
+          "a": "2023-12-04 23:00",
+          "d": "2023-12-05 08:00",
+          "st": "NOT ARRIVED",
+          "ps": "ACTIVE"
+        },
+        {
+          "c": "OMSOH",
+          "n": "Sohar",
+          "a": "2023-12-07 14:00",
+          "d": "2023-12-08 10:00",
+          "st": "NOT ARRIVED",
+          "ps": "ACTIVE"
+        },
+        {
+          "c": "INMUN",
+          "n": "Mundra",
+          "a": "2023-12-10 18:00",
+          "d": "2023-12-11 22:00",
+          "st": "NOT ARRIVED",
+          "ps": "ACTIVE"
+        },
+        {
+          "c": "INHZR",
+          "n": "Hazira",
+          "a": "2023-12-12 20:00",
+          "d": "2023-12-13 14:00",
+          "st": "NOT ARRIVED",
+          "ps": "ACTIVE"
+        },
+        {
+          "c": "INNSA",
+          "n": "Nhava Sheva",
+          "a": "2023-12-14 10:00",
+          "d": "2023-12-15 10:00",
+          "st": "NOT ARRIVED",
+          "ps": "ACTIVE"
+        },
+        {
+          "c": "AEJEA",
+          "n": "Jebel Ali",
+          "a": "2023-12-18 23:00",
+          "d": "2023-12-19 08:00",
+          "st": "NOT ARRIVED",
+          "ps": "ACTIVE"
+        }
+      ]
+    },
+    {
+      "v": "EVERLASTING GRACE",
+      "voy": "004",
+      "s": "ASX",
+      "sn": "ARABIAN SEA X-PRESS",
+      "p": [
+        {
+          "c": "AEJEA",
+          "n": "Jebel Ali",
+          "a": "2023-12-12 23:00",
+          "d": "2023-12-14 08:00",
+          "st": "NOT ARRIVED",
+          "ps": "ACTIVE"
+        },
+        {
+          "c": "OMSOH",
+          "n": "Sohar",
+          "a": "2023-12-15 14:00",
+          "d": "2023-12-16 10:00",
+          "st": "NOT ARRIVED",
+          "ps": "ACTIVE"
+        },
+        {
+          "c": "INMUN",
+          "n": "Mundra",
+          "a": "2023-12-18 18:00",
+          "d": "2023-12-19 22:00",
+          "st": "NOT ARRIVED",
+          "ps": "ACTIVE"
+        },
+        {
+          "c": "INHZR",
+          "n": "Hazira",
+          "a": "2023-12-20 20:00",
+          "d": "2023-12-21 14:00",
+          "st": "NOT ARRIVED",
+          "ps": "ACTIVE"
+        },
+        {
+          "c": "INNSA",
+          "n": "Nhava Sheva",
+          "a": "2023-12-22 10:00",
+          "d": "2023-12-23 10:00",
+          "st": "NOT ARRIVED",
+          "ps": "ACTIVE"
+        },
+        {
+          "c": "AEJEA",
+          "n": "Jebel Ali",
+          "a": "2023-12-26 23:00",
+          "d": "2023-12-28 08:00",
+          "st": "NOT ARRIVED",
+          "ps": "ACTIVE"
+        }
+      ]
+    },
+    {
+      "v": "ZHONG GU NAN NING",
+      "voy": "25051",
+      "s": "ASX",
+      "sn": "ARABIAN SEA X-PRESS",
+      "p": [
+        {
+          "c": "AEJEA",
+          "n": "Jebel Ali",
+          "a": "2023-12-18 23:00",
+          "d": "2023-12-19 08:00",
+          "st": "NOT ARRIVED",
+          "ps": "ACTIVE"
+        },
+        {
+          "c": "OMSOH",
+          "n": "Sohar",
+          "a": "2023-12-21 14:00",
+          "d": "2023-12-22 10:00",
+          "st": "NOT ARRIVED",
+          "ps": "ACTIVE"
+        },
+        {
+          "c": "INMUN",
+          "n": "Mundra",
+          "a": "2023-12-24 18:00",
+          "d": "2023-12-25 22:00",
+          "st": "NOT ARRIVED",
+          "ps": "ACTIVE"
+        },
+        {
+          "c": "INHZR",
+          "n": "Hazira",
+          "a": "2023-12-26 20:00",
+          "d": "2023-12-27 14:00",
+          "st": "NOT ARRIVED",
+          "ps": "ACTIVE"
+        },
+        {
+          "c": "INNSA",
+          "n": "Nhava Sheva",
+          "a": "2023-12-28 10:00",
+          "d": "2023-12-29 10:00",
+          "st": "NOT ARRIVED",
+          "ps": "ACTIVE"
+        },
+        {
+          "c": "AEJEA",
+          "n": "Jebel Ali",
+          "a": "2024-01-01 23:00",
+          "d": "2024-01-02 08:00",
+          "st": "NOT ARRIVED",
+          "ps": "ACTIVE"
+        }
+      ]
+    },
+    {
+      "v": "EVERLASTING GRACE",
+      "voy": "005",
+      "s": "ASX",
+      "sn": "ARABIAN SEA X-PRESS",
+      "p": [
+        {
+          "c": "AEJEA",
+          "n": "Jebel Ali",
+          "a": "2023-12-26 23:00",
+          "d": "2023-12-28 08:00",
+          "st": "NOT ARRIVED",
+          "ps": "ACTIVE"
+        },
+        {
+          "c": "OMSOH",
+          "n": "Sohar",
+          "a": "2023-12-29 14:00",
+          "d": "2023-12-30 10:00",
+          "st": "NOT ARRIVED",
+          "ps": "ACTIVE"
+        },
+        {
+          "c": "INMUN",
+          "n": "Mundra",
+          "a": "2024-01-01 18:00",
+          "d": "2024-01-02 22:00",
+          "st": "NOT ARRIVED",
+          "ps": "ACTIVE"
+        },
+        {
+          "c": "INHZR",
+          "n": "Hazira",
+          "a": "2024-01-03 20:00",
+          "d": "2024-01-04 14:00",
+          "st": "NOT ARRIVED",
+          "ps": "ACTIVE"
+        },
+        {
+          "c": "INNSA",
+          "n": "Nhava Sheva",
+          "a": "2024-01-05 10:00",
+          "d": "2024-01-06 10:00",
+          "st": "NOT ARRIVED",
+          "ps": "ACTIVE"
+        },
+        {
+          "c": "AEJEA",
+          "n": "Jebel Ali",
+          "a": "2024-01-09 23:00",
+          "d": "2024-01-11 08:00",
+          "st": "NOT ARRIVED",
+          "ps": "ACTIVE"
+        }
+      ]
+    },
+    {
+      "v": "ZHONG GU NAN NING",
+      "voy": "25053",
+      "s": "ASX",
+      "sn": "ARABIAN SEA X-PRESS",
+      "p": [
+        {
+          "c": "AEJEA",
+          "n": "Jebel Ali",
+          "a": "2024-01-01 23:00",
+          "d": "2024-01-02 08:00",
+          "st": "NOT ARRIVED",
+          "ps": "ACTIVE"
+        },
+        {
+          "c": "OMSOH",
+          "n": "Sohar",
+          "a": "2024-01-04 14:00",
+          "d": "2024-01-05 10:00",
+          "st": "NOT ARRIVED",
+          "ps": "ACTIVE"
+        },
+        {
+          "c": "INMUN",
+          "n": "Mundra",
+          "a": "2024-01-07 18:00",
+          "d": "2024-01-08 22:00",
+          "st": "NOT ARRIVED",
+          "ps": "ACTIVE"
+        },
+        {
+          "c": "INHZR",
+          "n": "Hazira",
+          "a": "2024-01-09 20:00",
+          "d": "2024-01-10 14:00",
+          "st": "NOT ARRIVED",
+          "ps": "ACTIVE"
+        },
+        {
+          "c": "INNSA",
+          "n": "Nhava Sheva",
+          "a": "2024-01-11 10:00",
+          "d": "2024-01-12 10:00",
+          "st": "NOT ARRIVED",
+          "ps": "ACTIVE"
+        },
+        {
+          "c": "AEJEA",
+          "n": "Jebel Ali",
+          "a": "2024-01-15 23:00",
+          "d": "2024-01-16 08:00",
+          "st": "NOT ARRIVED",
+          "ps": "ACTIVE"
+        }
+      ]
+    },
+    {
+      "v": "EVERLASTING GRACE",
+      "voy": "006",
+      "s": "ASX",
+      "sn": "ARABIAN SEA X-PRESS",
+      "p": [
+        {
+          "c": "AEJEA",
+          "n": "Jebel Ali",
+          "a": "2024-01-09 23:00",
+          "d": "2024-01-11 08:00",
+          "st": "NOT ARRIVED",
+          "ps": "ACTIVE"
+        },
+        {
+          "c": "OMSOH",
+          "n": "Sohar",
+          "a": "2024-01-12 14:00",
+          "d": "2024-01-13 10:00",
+          "st": "NOT ARRIVED",
+          "ps": "ACTIVE"
+        },
+        {
+          "c": "INMUN",
+          "n": "Mundra",
+          "a": "2024-01-15 18:00",
+          "d": "2024-01-16 22:00",
+          "st": "NOT ARRIVED",
+          "ps": "ACTIVE"
+        },
+        {
+          "c": "INHZR",
+          "n": "Hazira",
+          "a": "2024-01-17 20:00",
+          "d": "2024-01-18 14:00",
+          "st": "NOT ARRIVED",
+          "ps": "ACTIVE"
+        },
+        {
+          "c": "INNSA",
+          "n": "Nhava Sheva",
+          "a": "2024-01-1

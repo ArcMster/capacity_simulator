@@ -426,3 +426,53 @@ def search_schedule_view(request):
     }
 
     return render(request, 'capacity_tracking/search_schedule.html', context)
+
+from .forms import ScheduleUploadForm
+from .utils.schedule_parser import parse_schedule_image, process_schedule_data
+from django.core.files.storage import FileSystemStorage
+import os
+
+def upload_schedule_view(request):
+    results = []
+    error = None
+    
+    if request.method == 'POST':
+        form = ScheduleUploadForm(request.POST, request.FILES)
+        if form.is_valid():
+            uploaded_file = request.FILES['schedule_file']
+            fs = FileSystemStorage()
+            filename = fs.save(uploaded_file.name, uploaded_file)
+            file_path = fs.path(filename)
+            
+            try:
+                # Parse the image/PDF
+                schedules_data_list = parse_schedule_image(file_path)
+                
+                if not schedules_data_list:
+                     results.append("No valid schedules found in the file.")
+                
+                # Process each schedule
+                for schedule_data in schedules_data_list:
+                    result_msg = process_schedule_data(schedule_data)
+                    results.append(result_msg)
+
+            except Exception as e:
+                import traceback
+                traceback.print_exc()
+                error_msg = str(e)
+                if "429" in error_msg:
+                    error = "AI Service Busy (Quota Exceeded). Please try again later."
+                else:
+                    error = f"Error processing file: {error_msg}"
+            finally:
+                # Clean up the uploaded file
+                if os.path.exists(file_path):
+                    os.remove(file_path)
+    else:
+        form = ScheduleUploadForm()
+
+    return render(request, 'capacity_tracking/upload_schedule.html', {
+        'form': form,
+        'results': results,
+        'error': error
+    })
