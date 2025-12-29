@@ -162,6 +162,9 @@ def process_schedule_data(schedule_data):
         schedule.port_of_calls.all().delete()
 
         created_count = 0
+        first_eta = None
+        last_etd = None
+
         for idx, call in enumerate(port_calls):
             p_name = call.get("port_name")
             if not p_name: 
@@ -193,6 +196,11 @@ def process_schedule_data(schedule_data):
             # Parse Dates
             eta = parse_dt(call.get("eta"))
             etd = parse_dt(call.get("etd"))
+
+            if idx == 0:
+                first_eta = eta
+            
+            last_etd = etd or last_etd # Keep the last non-null etd
             
             # Status
             status = "NOT ARRIVED"
@@ -212,6 +220,22 @@ def process_schedule_data(schedule_data):
                 port_order=idx + 1
             )
             created_count += 1
+
+        # 5. Update Schedule Times and Link Previous Schedule
+        schedule.arrival_berthed = first_eta
+        schedule.departure_time = last_etd
+        
+        if first_eta:
+            # Find the previous schedule: same vessel, latest arrival_berthed < current arrival_berthed
+            prev_schedule = VesselSchedule.objects.filter(
+                vessel=vessel,
+                arrival_berthed__lt=first_eta
+            ).order_by('-arrival_berthed').first()
+            
+            if prev_schedule:
+                schedule.previous_schedule = prev_schedule
+        
+        schedule.save()
 
         action = "Created" if created else "Updated"
         return f"{action} schedule for {vessel.name} - {voyage_number} with {created_count} ports."
