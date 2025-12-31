@@ -3,37 +3,43 @@
     {
       "vessel_name": "ZHONG GU NAN NING",
       "voyage_number": "25041",
+      "direction": "FORWARD",
       "service_code": "ASX",
       "service_name": "ARABIAN SEA X-PRESS",
       "port_calls": [
         {
           "port_name": "Jebel Ali",
-          "eta": "09-Oct",
-          "etd": "12-Oct",
+          "terminal_name": "JA2/JA3",
+          "eta": "09-Oct-2025",
+          "etd": "12-Oct-2025",
           "status": null
         },
         {
           "port_name": "Sohar",
-          "eta": "13-Oct",
-          "etd": "14-Oct",
+          "terminal_name": "SOH",
+          "eta": "13-Oct-2025",
+          "etd": "14-Oct-2025",
           "status": null
         },
         {
           "port_name": "Mundra",
-          "eta": "16-Oct",
-          "etd": "17-Oct",
+          "terminal_name": "AMT",
+          "eta": "16-Oct-2025",
+          "etd": "17-Oct-2025",
           "status": null
         },
         {
           "port_name": "Hazira",
-          "eta": "18-Oct",
-          "etd": "19-Oct",
+          "terminal_name": "HZR",
+          "eta": "18-Oct-2025",
+          "etd": "19-Oct-2025",
           "status": null
         },
         {
           "port_name": "Nhava Sheva",
-          "eta": "20-Oct",
-          "etd": "20-Oct",
+          "terminal_name": "GTI",
+          "eta": "19-Oct-2025",
+          "etd": "20-Oct-2025",
           "status": null
         }
       ]
@@ -41,37 +47,43 @@
     {
       "vessel_name": "CELSIUS NAIROBI",
       "voyage_number": "0943",
+      "direction": "FORWARD",
       "service_code": "ASX",
       "service_name": "ARABIAN SEA X-PRESS",
       "port_calls": [
         {
           "port_name": "Jebel Ali",
-          "eta": "15-Oct",
-          "etd": "18-Oct",
+          "terminal_name": "JA2/JA3",
+          "eta": "15-Oct-2025",
+          "etd": "18-Oct-2025",
           "status": null
         },
         {
           "port_name": "Sohar",
-          "eta": "18-Oct",
-          "etd": "19-Oct",
+          "terminal_name": "SOH",
+          "eta": "18-Oct-2025",
+          "etd": "19-Oct-2025",
           "status": null
         },
         {
           "port_name": "Mundra",
-          "eta": "22-Oct",
-          "etd": "23-Oct",
+          "terminal_name": "AMT",
+          "eta": "22-Oct-2025",
+          "etd": "23-Oct-2025",
           "status": null
         },
         {
           "port_name": "Hazira",
-          "eta": "24-Oct",
-          "etd": "24-Oct",
+          "terminal_name": "HZR",
+          "eta": "24-Oct-2025",
+          "etd": "24-Oct-2025",
           "status": null
         },
         {
           "port_name": "Nhava Sheva",
-          "eta": "25-Oct",
-          "etd": "25-Oct",
+          "terminal_name": "GTI",
+          "eta": "25-Oct-2025",
+          "etd": "25-Oct-2025",
           "status": null
         }
       ]
@@ -79,37 +91,43 @@
     {
       "vessel_name": "ZHONG GU NAN NING",
       "voyage_number": "25043",
+      "direction": "FORWARD",
       "service_code": "ASX",
       "service_name": "ARABIAN SEA X-PRESS",
       "port_calls": [
         {
           "port_name": "Jebel Ali",
-          "eta": "23-Oct",
-          "etd": "26-Oct",
+          "terminal_name": "JA2/JA3",
+          "eta": "23-Oct-2025",
+          "etd": "26-Oct-2025",
           "status": null
         },
         {
           "port_name": "Sohar",
-          "eta": "27-Oct",
-          "etd": "28-Oct",
+          "terminal_name": "SOH",
+          "eta": "27-Oct-2025",
+          "etd": "28-Oct-2025",
           "status": null
         },
         {
           "port_name": "Mundra",
-          "eta": "31-Oct",
-          "etd": "31-Oct",
-          "status": null
-        },
-        {
-          "port_name": "Hazira",
-          "eta": "04-Nov",
-          "etd": "04-Nov",
+          "terminal_name": "AMT",
+          "eta": "31-Oct-2025",
+          "etd": "31-Oct-2025",
           "status": null
         },
         {
           "port_name": "Nhava Sheva",
-          "eta": "02-Nov",
-          "etd": "03-Nov",
+          "terminal_name": "GTI",
+          "eta": "02-Nov-2025",
+          "etd": "03-Nov-2025",
+          "status": null
+        },
+        {
+          "port_name": "Hazira",
+          "terminal_name": "HZR",
+          "eta": "04-Nov-2025",
+          "etd": "04-Nov-2025",
           "status": null
         }
       ]
@@ -117,75 +135,87 @@
     {
       "vessel_name": "EVERLASTING GRACE",
       "voyage_number": "001",
+      "direction": "FORWARD",
       "service_code": "ASX",
       "service_name": "ARABIAN SEA X-PRESS",
       "port_calls": [
         {
           "port_name": "Jebel Ali",
-          "eta": "03-Nov",
-          "etd": "05-Nov",
+          "terminal_name": "JA2/JA3",
+          "eta": "03-Nov-2025",
+          "etd": "05-Nov-2025",
           "status": null
         },
         {
           "port_name": "Sohar",
-          "eta": "OMIT",
-          "etd": "OMIT",
-          "status": "OMITTED"
-        },
-        {
-          "port_name": "Mundra",
-          "eta": "10-Nov",
-          "etd": "12-Nov",
-          "status": null
-        },
-        {
-          "port_name": "Hazira",
-          "eta": "OMIT",
-          "etd": "OMIT",
+          "terminal_name": "SOH",
+          "eta": null,
+          "etd": null,
           "status": "OMITTED"
         },
         {
           "port_name": "Nhava Sheva",
-          "eta": "08-Nov",
-          "etd": "09-Nov",
+          "terminal_name": "GTI",
+          "eta": "08-Nov-2025",
+          "etd": "09-Nov-2025",
           "status": null
+        },
+        {
+          "port_name": "Mundra",
+          "terminal_name": "AMT",
+          "eta": "10-Nov-2025",
+          "etd": "12-Nov-2025",
+          "status": null
+        },
+        {
+          "port_name": "Hazira",
+          "terminal_name": "HZR",
+          "eta": null,
+          "etd": null,
+          "status": "OMITTED"
         }
       ]
     },
     {
       "vessel_name": "ZHONG GU NAN NING",
       "voyage_number": "25045",
+      "direction": "FORWARD",
       "service_code": "ASX",
       "service_name": "ARABIAN SEA X-PRESS",
       "port_calls": [
         {
           "port_name": "Jebel Ali",
-          "eta": "07-Nov",
-          "etd": "09-Nov",
+          "terminal_name": "JA2/JA3",
+          "eta": "07-Nov-2025",
+          "etd": "09-Nov-2025",
           "status": null
         },
         {
           "port_name": "Sohar",
-          "eta": "10-Nov",
-          "etd": "11-Nov",
+          "terminal_name": "SOH",
+          "eta": "10-Nov-2025",
+          "etd": "11-Nov-2025",
           "status": null
         },
         {
           "port_name": "Mundra",
-          "eta": "OMIT",
-          "etd": "OMIT",
+          "terminal_name": "AMT",
+          "eta": null,
+          "etd": null,
           "status": "OMITTED"
         },
         {
           "port_name": "Hazira",
-          "eta": "14-Nov",
-          "etd": "15-Nov",
+          "terminal_name": "HZR",
+          "eta": "14-Nov-2025",
+          "etd": "15-Nov-2025",
           "status": null
         },
         {
           "port_name": "Nhava Sheva",
-          "eta": "16-Nov",
-          "etd": "17-Nov",
+          "terminal_name": "GTI",
+          "eta": "16-Nov-2025",
+          "etd": "17-Nov-2025",
           "status": null
         }
       ]
@@ -193,37 +223,43 @@
     {
       "vessel_name": "EVERLASTING GRACE",
       "voyage_number": "002",
+      "direction": "FORWARD",
       "service_code": "ASX",
       "service_name": "ARABIAN SEA X-PRESS",
       "port_calls": [
         {
           "port_name": "Jebel Ali",
-          "eta": "14-Nov",
-          "etd": "16-Nov",
+          "terminal_name": "JA2/JA3",
+          "eta": "14-Nov-2025",
+          "etd": "16-Nov-2025",
           "status": null
         },
         {
           "port_name": "Sohar",
-          "eta": "17-Nov",
-          "etd": "18-Nov",
+          "terminal_name": "SOH",
+          "eta": "17-Nov-2025",
+          "etd": "18-Nov-2025",
           "status": null
         },
         {
           "port_name": "Mundra",
-          "eta": "20-Nov",
-          "etd": "21-Nov",
+          "terminal_name": "AMT",
+          "eta": "20-Nov-2025",
+          "etd": "21-Nov-2025",
           "status": null
         },
         {
           "port_name": "Hazira",
-          "eta": "22-Nov",
-          "etd": "23-Nov",
+          "terminal_name": "HZR",
+          "eta": "22-Nov-2025",
+          "etd": "23-Nov-2025",
           "status": null
         },
         {
           "port_name": "Nhava Sheva",
-          "eta": "23-Nov",
-          "etd": "25-Nov",
+          "terminal_name": "GTI",
+          "eta": "23-Nov-2025",
+          "etd": "25-Nov-2025",
           "status": null
         }
       ]
@@ -231,37 +267,43 @@
     {
       "vessel_name": "ZHONG GU NAN NING",
       "voyage_number": "25047",
+      "direction": "FORWARD",
       "service_code": "ASX",
       "service_name": "ARABIAN SEA X-PRESS",
       "port_calls": [
         {
           "port_name": "Jebel Ali",
-          "eta": "20-Nov",
-          "etd": "21-Nov",
+          "terminal_name": "JA2/JA3",
+          "eta": "20-Nov-2025",
+          "etd": "21-Nov-2025",
           "status": null
         },
         {
           "port_name": "Sohar",
-          "eta": "23-Nov",
-          "etd": "24-Nov",
+          "terminal_name": "SOH",
+          "eta": "23-Nov-2025",
+          "etd": "24-Nov-2025",
           "status": null
         },
         {
           "port_name": "Mundra",
-          "eta": "26-Nov",
-          "etd": "27-Nov",
+          "terminal_name": "AMT",
+          "eta": "26-Nov-2025",
+          "etd": "27-Nov-2025",
           "status": null
         },
         {
           "port_name": "Hazira",
-          "eta": "28-Nov",
-          "etd": "29-Nov",
+          "terminal_name": "HZR",
+          "eta": "28-Nov-2025",
+          "etd": "29-Nov-2025",
           "status": null
         },
         {
           "port_name": "Nhava Sheva",
-          "eta": "30-Nov",
-          "etd": "01-Dec",
+          "terminal_name": "GTI",
+          "eta": "30-Nov-2025",
+          "etd": "01-Dec-2025",
           "status": null
         }
       ]
@@ -269,37 +311,43 @@
     {
       "vessel_name": "EVERLASTING GRACE",
       "voyage_number": "003",
+      "direction": "FORWARD",
       "service_code": "ASX",
       "service_name": "ARABIAN SEA X-PRESS",
       "port_calls": [
         {
           "port_name": "Jebel Ali",
-          "eta": "28-Nov",
-          "etd": "30-Nov",
+          "terminal_name": "JA2/JA3",
+          "eta": "28-Nov-2025",
+          "etd": "30-Nov-2025",
           "status": null
         },
         {
           "port_name": "Sohar",
-          "eta": "01-Dec",
-          "etd": "02-Dec",
+          "terminal_name": "SOH",
+          "eta": "01-Dec-2025",
+          "etd": "02-Dec-2025",
           "status": null
         },
         {
           "port_name": "Mundra",
-          "eta": "04-Dec",
-          "etd": "05-Dec",
+          "terminal_name": "AMT",
+          "eta": "04-Dec-2025",
+          "etd": "05-Dec-2025",
           "status": null
         },
         {
           "port_name": "Hazira",
-          "eta": "06-Dec",
-          "etd": "07-Dec",
+          "terminal_name": "HZR",
+          "eta": "06-Dec-2025",
+          "etd": "07-Dec-2025",
           "status": null
         },
         {
           "port_name": "Nhava Sheva",
-          "eta": "08-Dec",
-          "etd": "09-Dec",
+          "terminal_name": "GTI",
+          "eta": "08-Dec-2025",
+          "etd": "09-Dec-2025",
           "status": null
         }
       ]
@@ -307,37 +355,43 @@
     {
       "vessel_name": "ZHONG GU NAN NING",
       "voyage_number": "25049",
+      "direction": "FORWARD",
       "service_code": "ASX",
       "service_name": "ARABIAN SEA X-PRESS",
       "port_calls": [
         {
           "port_name": "Jebel Ali",
-          "eta": "04-Dec",
-          "etd": "05-Dec",
+          "terminal_name": "JA2/JA3",
+          "eta": "04-Dec-2025",
+          "etd": "05-Dec-2025",
           "status": null
         },
         {
           "port_name": "Sohar",
-          "eta": "07-Dec",
-          "etd": "08-Dec",
+          "terminal_name": "SOH",
+          "eta": "07-Dec-2025",
+          "etd": "08-Dec-2025",
           "status": null
         },
         {
           "port_name": "Mundra",
-          "eta": "10-Dec",
-          "etd": "11-Dec",
+          "terminal_name": "AMT",
+          "eta": "10-Dec-2025",
+          "etd": "11-Dec-2025",
           "status": null
         },
         {
           "port_name": "Hazira",
-          "eta": "12-Dec",
-          "etd": "13-Dec",
+          "terminal_name": "HZR",
+          "eta": "12-Dec-2025",
+          "etd": "13-Dec-2025",
           "status": null
         },
         {
           "port_name": "Nhava Sheva",
-          "eta": "14-Dec",
-          "etd": "15-Dec",
+          "terminal_name": "GTI",
+          "eta": "14-Dec-2025",
+          "etd": "15-Dec-2025",
           "status": null
         }
       ]
@@ -345,37 +399,43 @@
     {
       "vessel_name": "EVERLASTING GRACE",
       "voyage_number": "004",
+      "direction": "FORWARD",
       "service_code": "ASX",
       "service_name": "ARABIAN SEA X-PRESS",
       "port_calls": [
         {
           "port_name": "Jebel Ali",
-          "eta": "12-Dec",
-          "etd": "14-Dec",
+          "terminal_name": "JA2/JA3",
+          "eta": "12-Dec-2025",
+          "etd": "14-Dec-2025",
           "status": null
         },
         {
           "port_name": "Sohar",
-          "eta": "15-Dec",
-          "etd": "16-Dec",
+          "terminal_name": "SOH",
+          "eta": "15-Dec-2025",
+          "etd": "16-Dec-2025",
           "status": null
         },
         {
           "port_name": "Mundra",
-          "eta": "18-Dec",
-          "etd": "19-Dec",
+          "terminal_name": "AMT",
+          "eta": "18-Dec-2025",
+          "etd": "19-Dec-2025",
           "status": null
         },
         {
           "port_name": "Hazira",
-          "eta": "20-Dec",
-          "etd": "21-Dec",
+          "terminal_name": "HZR",
+          "eta": "20-Dec-2025",
+          "etd": "21-Dec-2025",
           "status": null
         },
         {
           "port_name": "Nhava Sheva",
-          "eta": "22-Dec",
-          "etd": "23-Dec",
+          "terminal_name": "GTI",
+          "eta": "22-Dec-2025",
+          "etd": "23-Dec-2025",
           "status": null
         }
       ]
@@ -383,37 +443,43 @@
     {
       "vessel_name": "ZHONG GU NAN NING",
       "voyage_number": "25051",
+      "direction": "FORWARD",
       "service_code": "ASX",
       "service_name": "ARABIAN SEA X-PRESS",
       "port_calls": [
         {
           "port_name": "Jebel Ali",
-          "eta": "18-Dec",
-          "etd": "19-Dec",
+          "terminal_name": "JA2/JA3",
+          "eta": "18-Dec-2025",
+          "etd": "19-Dec-2025",
           "status": null
         },
         {
           "port_name": "Sohar",
-          "eta": "21-Dec",
-          "etd": "22-Dec",
+          "terminal_name": "SOH",
+          "eta": "21-Dec-2025",
+          "etd": "22-Dec-2025",
           "status": null
         },
         {
           "port_name": "Mundra",
-          "eta": "24-Dec",
-          "etd": "25-Dec",
+          "terminal_name": "AMT",
+          "eta": "24-Dec-2025",
+          "etd": "25-Dec-2025",
           "status": null
         },
         {
           "port_name": "Hazira",
-          "eta": "26-Dec",
-          "etd": "27-Dec",
+          "terminal_name": "HZR",
+          "eta": "26-Dec-2025",
+          "etd": "27-Dec-2025",
           "status": null
         },
         {
           "port_name": "Nhava Sheva",
-          "eta": "28-Dec",
-          "etd": "29-Dec",
+          "terminal_name": "GTI",
+          "eta": "28-Dec-2025",
+          "etd": "29-Dec-2025",
           "status": null
         }
       ]
@@ -421,37 +487,43 @@
     {
       "vessel_name": "EVERLASTING GRACE",
       "voyage_number": "005",
+      "direction": "FORWARD",
       "service_code": "ASX",
       "service_name": "ARABIAN SEA X-PRESS",
       "port_calls": [
         {
           "port_name": "Jebel Ali",
-          "eta": "26-Dec",
-          "etd": "28-Dec",
+          "terminal_name": "JA2/JA3",
+          "eta": "26-Dec-2025",
+          "etd": "28-Dec-2025",
           "status": null
         },
         {
           "port_name": "Sohar",
-          "eta": "29-Dec",
-          "etd": "30-Dec",
+          "terminal_name": "SOH",
+          "eta": "29-Dec-2025",
+          "etd": "30-Dec-2025",
           "status": null
         },
         {
           "port_name": "Mundra",
-          "eta": "01-Jan",
-          "etd": "02-Jan",
+          "terminal_name": "AMT",
+          "eta": "01-Jan-2026",
+          "etd": "02-Jan-2026",
           "status": null
         },
         {
           "port_name": "Hazira",
-          "eta": "03-Jan",
-          "etd": "04-Jan",
+          "terminal_name": "HZR",
+          "eta": "03-Jan-2026",
+          "etd": "04-Jan-2026",
           "status": null
         },
         {
           "port_name": "Nhava Sheva",
-          "eta": "05-Jan",
-          "etd": "06-Jan",
+          "terminal_name": "GTI",
+          "eta": "05-Jan-2026",
+          "etd": "06-Jan-2026",
           "status": null
         }
       ]
@@ -459,37 +531,43 @@
     {
       "vessel_name": "ZHONG GU NAN NING",
       "voyage_number": "25053",
+      "direction": "FORWARD",
       "service_code": "ASX",
       "service_name": "ARABIAN SEA X-PRESS",
       "port_calls": [
         {
           "port_name": "Jebel Ali",
-          "eta": "01-Jan",
-          "etd": "02-Jan",
+          "terminal_name": "JA2/JA3",
+          "eta": "01-Jan-2026",
+          "etd": "02-Jan-2026",
           "status": null
         },
         {
           "port_name": "Sohar",
-          "eta": "04-Jan",
-          "etd": "05-Jan",
+          "terminal_name": "SOH",
+          "eta": "04-Jan-2026",
+          "etd": "05-Jan-2026",
           "status": null
         },
         {
           "port_name": "Mundra",
-          "eta": "07-Jan",
-          "etd": "08-Jan",
+          "terminal_name": "AMT",
+          "eta": "07-Jan-2026",
+          "etd": "08-Jan-2026",
           "status": null
         },
         {
           "port_name": "Hazira",
-          "eta": "09-Jan",
-          "etd": "10-Jan",
+          "terminal_name": "HZR",
+          "eta": "09-Jan-2026",
+          "etd": "10-Jan-2026",
           "status": null
         },
         {
           "port_name": "Nhava Sheva",
-          "eta": "11-Jan",
-          "etd": "12-Jan",
+          "terminal_name": "GTI",
+          "eta": "11-Jan-2026",
+          "etd": "12-Jan-2026",
           "status": null
         }
       ]
@@ -497,37 +575,43 @@
     {
       "vessel_name": "EVERLASTING GRACE",
       "voyage_number": "006",
+      "direction": "FORWARD",
       "service_code": "ASX",
       "service_name": "ARABIAN SEA X-PRESS",
       "port_calls": [
         {
           "port_name": "Jebel Ali",
-          "eta": "09-Jan",
-          "etd": "11-Jan",
+          "terminal_name": "JA2/JA3",
+          "eta": "09-Jan-2026",
+          "etd": "11-Jan-2026",
           "status": null
         },
         {
           "port_name": "Sohar",
-          "eta": "12-Jan",
-          "etd": "13-Jan",
+          "terminal_name": "SOH",
+          "eta": "12-Jan-2026",
+          "etd": "13-Jan-2026",
           "status": null
         },
         {
           "port_name": "Mundra",
-          "eta": "15-Jan",
-          "etd": "16-Jan",
+          "terminal_name": "AMT",
+          "eta": "15-Jan-2026",
+          "etd": "16-Jan-2026",
           "status": null
         },
         {
           "port_name": "Hazira",
-          "eta": "17-Jan",
-          "etd": "18-Jan",
+          "terminal_name": "HZR",
+          "eta": "17-Jan-2026",
+          "etd": "18-Jan-2026",
           "status": null
         },
         {
           "port_name": "Nhava Sheva",
-          "eta": "19-Jan",
-          "etd": "20-Jan",
+          "terminal_name": "GTI",
+          "eta": "19-Jan-2026",
+          "etd": "20-Jan-2026",
           "status": null
         }
       ]
@@ -535,37 +619,75 @@
     {
       "vessel_name": "ZHONG GU NAN NING",
       "voyage_number": "25055",
+      "direction": "FORWARD",
       "service_code": "ASX",
       "service_name": "ARABIAN SEA X-PRESS",
       "port_calls": [
         {
           "port_name": "Jebel Ali",
-          "eta": "15-Jan",
-          "etd": "16-Jan",
+          "terminal_name": "JA2/JA3",
+          "eta": "15-Jan-2026",
+          "etd": "16-Jan-2026",
           "status": null
         },
         {
           "port_name": "Sohar",
-          "eta": "18-Jan",
-          "etd": "19-Jan",
+          "terminal_name": "SOH",
+          "eta": "18-Jan-2026",
+          "etd": "19-Jan-2026",
           "status": null
         },
         {
           "port_name": "Mundra",
-          "eta": "21-Jan",
-          "etd": "22-Jan",
+          "terminal_name": "AMT",
+          "eta": "21-Jan-2026",
+          "etd": "22-Jan-2026",
           "status": null
         },
         {
           "port_name": "Hazira",
-          "eta": "23-Jan",
-          "etd": "24-Jan",
+          "terminal_name": "HZR",
+          "eta": "23-Jan-2026",
+          "etd": "24-Jan-2026",
           "status": null
         },
         {
           "port_name": "Nhava Sheva",
-          "eta": "25-Jan",
-          "etd": "26-Jan",
+          "terminal_name": "GTI",
+          "eta": "25-Jan-2026",
+          "etd": "26-Jan-2026",
+          "status": null
+        }
+      ]
+    },
+    {
+      "vessel_name": "EVERLASTING GRACE",
+      "voyage_number": "007",
+      "direction": "FORWARD",
+      "service_code": "ASX",
+      "service_name": "ARABIAN SEA X-PRESS",
+      "port_calls": [
+        {
+          "port_name": "Jebel Ali",
+          "terminal_name": "JA2/JA3",
+          "eta": "23-Jan-2026",
+          "etd": "25-Jan-2026",
+          "status": null
+        }
+      ]
+    },
+    {
+      "vessel_name": "ZHONG GU NAN NING",
+      "voyage_number": "25057",
+      "direction": "FORWARD",
+      "service_code": "ASX",
+      "service_name": "ARABIAN SEA X-PRESS",
+      "port_calls": [
+        {
+          "port_name": "Jebel Ali",
+          "terminal_name": "JA2/JA3",
+          "eta": "29-Jan-2026",
+          "etd": "30-Jan-2026",
           "status": null
         }
       ]

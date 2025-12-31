@@ -115,7 +115,7 @@ def search_schedule_view(request):
     schedules_qs = schedules_qs.distinct().order_by('id')
 
     # Fetch Data using the user's logic pattern
-    vessel_schedules = list(schedules_qs.values('id', 'voyage', 'status', 'service_id').annotate(
+    vessel_schedules = list(schedules_qs.values('id', 'voyage', 'status', 'service_id', 'direction').annotate(
         service=F('service__name'), 
         vessel=F('vessel__name'),
         previous_voyage=F('previous_schedule__voyage')

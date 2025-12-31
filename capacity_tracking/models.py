@@ -34,6 +34,12 @@ class Port(models.Model):
     def __str__(self):
         return self.name
 
+
+class Terminal(models.Model):
+    name = models.CharField(max_length=255)
+    code = models.CharField(max_length=25, unique=True)
+    port = models.ForeignKey(Port, on_delete=models.PROTECT)
+
 class Vendor(models.Model):
     name = models.CharField(max_length=255)
     code = models.CharField(max_length=25, unique=True)
@@ -53,7 +59,9 @@ class VesselSchedule(models.Model):
 
     VOYAGE_DIRECTION = (("FORWARD", "FORWARD"),
                     ("BACKWARD", "BACKWARD"),
-                    ("STRAIGHT", "STRAIGHT"))
+                    ("STRAIGHT", "STRAIGHT"),
+                    ("EAST", "EAST"),
+                    ("WEST", "WEST"))
 
     voyage = models.CharField(max_length=35)
     vessel = models.ForeignKey(Vessel, on_delete=models.PROTECT, )
@@ -70,6 +78,7 @@ class VesselSchedule(models.Model):
         return f'{self.vessel.name} - {self.voyage}'
 
 
+
 class PortOfCall(models.Model):
     STATUS = (('ARRIVED', 'ARRIVED'),('NOT ARRIVED','NOT ARRIVED'), 
               ('SAILED', 'SAILED'),('NOT SAILED','NOT SAILED'),
@@ -84,6 +93,10 @@ class PortOfCall(models.Model):
     to_port = models.ForeignKey(Port, on_delete=models.SET_NULL,
                                 related_name='from_port_of_calls',
                                 related_query_name='from_port_of_calls',
+                                null=True, blank=True)
+    terminal = models.ForeignKey(Terminal, on_delete=models.PROTECT,
+                                related_name='port_of_calls',
+                                related_query_name='port_of_calls',
                                 null=True, blank=True)
     vessel_schedule = models.ForeignKey(VesselSchedule,
                                         on_delete=models.CASCADE,
