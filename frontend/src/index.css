@@ -1,0 +1,114 @@
+:root {
+  --primary-color: #002D5C;
+  --primary-light: #004b99;
+  --primary-dark: #001a36;
+  --accent-color: #F58220;
+  --accent-light: #ff9d4d;
+  --bg-color: #f8fafc;
+  --card-bg: #ffffff;
+  --text-color: #1e293b;
+  --text-muted: #64748b;
+  --border-color: #e2e8f0;
+  --success-color: #10b981;
+  --warning-color: #f59e0b;
+  --error-color: #ef4444;
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --radius-md: 12px;
+  --radius-lg: 20px;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 40px;
+}
+
+.card {
+  background: var(--card-bg);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border-color);
+  padding: 24px;
+  margin-bottom: 24px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+  box-shadow: var(--shadow-md);
+}
+
+/* Timeline Layout Utilities */
+.timeline-track {
+  position: relative;
+  width: 4px;
+  background: var(--border-color);
+  margin-left: 10px;
+  border-radius: 2px;
+}
+
+.timeline-node {
+  position: absolute;
+  left: -6px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: white;
+  border: 3px solid var(--text-muted);
+  z-index: 1;
+}
+
+.timeline-node.active {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 4px rgba(0, 45, 92, 0.1);
+}
+
+.timeline-node.pol {
+  border-color: var(--success-color);
+  background: var(--success-color);
+}
+
+.timeline-node.pod {
+  border-color: var(--error-color);
+  background: var(--error-color);
+}
+
+.timeline-node.ts {
+  border-color: var(--primary-color);
+  background: var(--primary-color);
+}
+
+.vessel-group {
+  background: rgba(0, 45, 92, 0.03);
+  border: 1px dashed var(--border-color);
+  border-radius: 16px;
+  padding: 16px;
+  margin: 8px 0;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-out forwards;
+}
